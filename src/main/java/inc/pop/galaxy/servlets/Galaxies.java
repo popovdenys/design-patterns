@@ -1,4 +1,4 @@
-package inc.pop.servlets;
+package inc.pop.galaxy.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import inc.pop.db.GalaxiesData;
 import inc.pop.domain.Galaxy;
+import inc.pop.galaxy.model.OutputPatterns;
 
 
 public class Galaxies extends HttpServlet {
@@ -24,15 +25,18 @@ public class Galaxies extends HttpServlet {
 		response.setContentType("text/html");
 		List<Galaxy> galaxies = new GalaxiesData().getAllGalaxies();
 		
-		out.println("<html><body><h1>Known Galaxies<h1>");
+		out.println("<html><body><h2>Known Galaxies</h2>");
 		out.println("<ul>");
-		Stream.of(galaxies).forEach(g -> out.println("<li>" + g + "</li>"));
-		out.println("</ul></body></html>");
+		galaxies.stream().forEach(OutputPatterns.infoListNote(out));
+		out.println("</ul>");
+		
+		out.println("<a href=\"search.html\">Find your route</a> | ");
+		out.println("<a href=\"choose.html\">Make your choice</a>");
+				
+		out.println("</body></html>");
 		
 		out.close();
 		
 	}
-	
-	
 
 }

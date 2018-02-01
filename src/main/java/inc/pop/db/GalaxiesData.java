@@ -42,11 +42,10 @@ public class GalaxiesData {
 	}
 	
 	public List<Galaxy> find(String searchCriteria) {
-		Stream.of(galaxies).flatMap(g->g.stream()).filter(findByName(searchCriteria)).collect(Collectors.toList());
-		return null;
+		return galaxies.stream().filter(findByName(searchCriteria)).collect(Collectors.toList());
 	}
 	
 	private Predicate<? super Galaxy> findByName(String searchCriteria) {
-		return (Galaxy galaxy) -> galaxy.getName().contains(searchCriteria);
+		return (Galaxy galaxy) -> galaxy.getName().toLowerCase().contains(searchCriteria.toLowerCase());
 	}
 }
