@@ -21,17 +21,16 @@ public class Galaxies extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
 		List<Galaxy> galaxies = new GalaxiesData().getAllGalaxies();
 		
-		for (Galaxy galaxy : galaxies) {
-			out.println(galaxy);
-		}
-		
-		Stream.of(galaxies).forEach(out::println);
+		out.println("<html><body><h1>Known Galaxies<h1>");
+		out.println("<ul>");
+		Stream.of(galaxies).forEach(g -> out.println("<li>" + g + "</li>"));
+		out.println("</ul></body></html>");
 		
 		out.close();
 		
-		super.doGet(request, response);
 	}
 	
 	

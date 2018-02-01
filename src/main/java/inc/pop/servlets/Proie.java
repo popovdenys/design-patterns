@@ -34,7 +34,6 @@ public class Proie extends HttpServlet {
 		out.print("<img src=\"svg/circle.svg\">");
 		out.close();
 		
-		//super.service(request, response);
 	}
 
 }

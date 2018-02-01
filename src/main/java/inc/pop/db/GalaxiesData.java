@@ -2,6 +2,10 @@ package inc.pop.db;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import inc.pop.domain.Galaxy;
 
@@ -37,5 +41,12 @@ public class GalaxiesData {
 		return galaxies;
 	}
 	
+	public List<Galaxy> find(String searchCriteria) {
+		Stream.of(galaxies).flatMap(g->g.stream()).filter(findByName(searchCriteria)).collect(Collectors.toList());
+		return null;
+	}
 	
+	private Predicate<? super Galaxy> findByName(String searchCriteria) {
+		return (Galaxy galaxy) -> galaxy.getName().contains(searchCriteria);
+	}
 }
