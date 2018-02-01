@@ -1,0 +1,200 @@
+/**
+ * File : build.gradle
+ *
+ * Author : Popov Denys
+ * Created : 30 Feb, 2018
+ * 
+ * Modified : 30 Feb, 2018
+ * Modified by: Popov Denys
+ * Last modification : war initialization 
+ * 
+ */
+
+/**
+ * DECLARE PLUGINS  
+ */
+
+plugins {
+    // Apply the eclipse plugin to extend ide support
+    id 'eclipse'
+	
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+	
+	// Apply the web plugin to add support for building an web archive
+	id 'war'
+}
+
+/**
+ * DECLARE THE PROJECT VARIABLES
+ */
+
+ext {
+	warPrefix = 'war-'
+	// define the principal group's names
+	groups = [
+		release : /${warPrefix}release/
+		,backup : /${warPrefix}backup/
+		,deploy : /${warPrefix}deploy/
+		]
+		
+	// additional info
+	info = [
+		author : "Popov Denys"
+		,contact : "popovdenys@yahoo.fr"
+		]
+	
+		temp = null	// todo
+}
+
+/**
+ * APPLICATION SETTINGS
+ */
+
+// Define archive name
+archivesBaseName = 'patterns'
+
+// Define compile build directory
+buildDir = 'build'
+// Define the main class for the application
+mainClassName = 'inc.pop.client.ClientApp'
+// Compatible with Java 8
+sourceCompatibility = 1.8
+
+group 'inc.pop'
+version =  '0.1-SNAPSHOT'
+description "Design patterns implementation, ver.$version"
+
+/**
+ * CHOOSE SOURCE SETS
+ */
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java']
+		}
+		resources {
+			srcDirs = ['src/main/resources']
+		}
+	}
+	
+	test {
+		java {
+			srcDirs = ['src/test/java']
+		}
+		resources {
+			srcDirs = ['src/test/resources']
+		}
+	}
+}
+
+
+/**
+ * ADD DEPENDENCIES
+ */
+dependencies {
+    // This dependency is found on compile classpath of this component and consumers.
+    compile 'com.google.guava:guava:23.0'
+
+    // Use JUnit test framework
+    testCompile 'junit:junit:4.12'
+	
+	// Use servlet api
+//	runtime 'javax.servlet:servlet-api:3.0-alpha-1'
+	providedCompile 'javax:javaee-web-api:8.0'
+	runtime 'javax.ws.rs:javax.ws.rs-api:2.0'
+	runtime 'javax:javaee-endorsed-api:7.0'
+	runtime 'javax.servlet:jstl:1.1.2'
+}
+
+/**
+ * USE REPOSITORIES
+ */
+repositories {
+	// Start with maven
+	mavenCentral()
+	// Continue with jcenter
+	jcenter()
+}
+
+/**
+ * WAR APPLICATION
+ */
+
+war {
+	from 'interface'
+//	metaInf { from 'src/main/resources/META-INF'}
+//	webXml = file('src/main/webapp/WEB-INF/web.xml')
+}
+
+
+/**
+ * RELEASE
+ * tasks : ['release']
+ */
+task release(group : groups.release, description : 'make release version') {
+	doLast{
+		println 'release'
+	}
+}
+
+release.dependsOn(':backup')
+
+/**
+ * BACKUP
+ * tasks : ['backup']
+ */
+task zipWorkingDistribution(type : Zip) {
+	from war.outputs.files
+	from(sourceSets*.allSource) {
+		into 'src'
+		from(rootDir) {
+			include 'interface/**/*'
+		}
+	}
+}
+
+task backup(type : Copy
+			, group : groups.backup
+			, description : 'make backup of working version') {
+	from zipWorkingDistribution.outputs.files
+	into "$buildDir/backup"
+	doLast{
+		println 'backup finished'
+	}
+}
+
+//backup.finalizedBy war
+
+/**
+ * DEPLOY
+ * tasks : ['deployToTomcat']
+ */
+task deployToTomcat(type : Copy
+					, group : groups.deploy
+					, description : 'deploy to apache-tomcat servlet container') {
+	from war.outputs.files
+	into "${System.properties['user.home']}/apache-tomcat/v9.0.4/webapps"
+	doLast{
+		println 'deploied to tomcat'
+	}
+}
+ 
+deployToTomcat.dependsOn backup, release //, release
+
+
+task extendWar {
+	doLast {
+		println 'MADE WAR FILE'
+	}
+}
+
+war.finalizedBy extendWar
+ 
+ 
+ 
+ 

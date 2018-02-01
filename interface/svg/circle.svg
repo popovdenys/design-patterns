@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en"
+height="500px" width="300px" >
+	<title>Primitive</title>
+	<circle cx="80" cy="80" r="30" fill="lightblue"/>
+</svg>
