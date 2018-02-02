@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import inc.pop.db.GalaxiesData;
 import inc.pop.domain.Galaxy;
-import inc.pop.galaxy.model.OutputPatterns;
+import inc.pop.galaxy.model.Pattern;
 
 
 public class Galaxies extends HttpServlet {
@@ -27,7 +27,7 @@ public class Galaxies extends HttpServlet {
 		
 		out.println("<html><body><h2>Known Galaxies</h2>");
 		out.println("<ul>");
-		galaxies.stream().forEach(OutputPatterns.infoListNote(out));
+		galaxies.stream().forEach(Pattern.infoListNote(out));
 		out.println("</ul>");
 		
 		out.println("<a href=\"search.html\">Find your route</a> | ");

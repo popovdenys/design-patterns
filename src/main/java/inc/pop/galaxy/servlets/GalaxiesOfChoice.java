@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import inc.pop.db.GalaxiesData;
 import inc.pop.domain.Galaxy;
-import inc.pop.galaxy.model.OutputPatterns;
-import inc.pop.galaxy.model.OutputPatterns.InputType;
+import inc.pop.galaxy.model.Pattern;
+import inc.pop.galaxy.model.Pattern.InputType;
 
 public class GalaxiesOfChoice extends HttpServlet {
 
@@ -29,7 +29,7 @@ public class GalaxiesOfChoice extends HttpServlet {
 		out.println("<form action=\"choosenRoute.html\" method=\"POST\">");
 		
 		out.println("<ul>");
-		galaxies.stream().forEach(OutputPatterns.inputGalaxyNote(out, InputType.CHECKBOX.get()));
+		galaxies.stream().forEach(Pattern.inputGalaxyNote(out, InputType.CHECKBOX.get()));
 		out.println("</ul>");
 		
 		out.println("<input type=\"" + InputType.SUBMIT.get() +"\" value=\"Make my choise\">");

@@ -2,10 +2,8 @@ package inc.pop.db;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import inc.pop.domain.Galaxy;
 
@@ -41,11 +39,20 @@ public class GalaxiesData {
 		return galaxies;
 	}
 	
-	public List<Galaxy> find(String searchCriteria) {
-		return galaxies.stream().filter(findByName(searchCriteria)).collect(Collectors.toList());
+	public List<Galaxy> find(Predicate<? super Galaxy> criteria) {
+		
+		return galaxies.stream().filter(criteria).collect(Collectors.toList());
+		
 	}
 	
-	private Predicate<? super Galaxy> findByName(String searchCriteria) {
+	public static Predicate<? super Galaxy> byName(String searchCriteria) {
+		
 		return (Galaxy galaxy) -> galaxy.getName().toLowerCase().contains(searchCriteria.toLowerCase());
 	}
+	
+	public static Predicate<? super Galaxy> byId(int id) {
+		
+		return (Galaxy galaxy) -> galaxy.getId() == id;
+	}
+
 }

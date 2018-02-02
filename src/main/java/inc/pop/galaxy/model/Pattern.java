@@ -5,7 +5,7 @@ import java.util.function.Consumer;
 
 import inc.pop.domain.Galaxy;
 
-public class OutputPatterns {
+public class Pattern {
 	
 	public enum InputType {
 		CHECKBOX{public String get() { return "checkbox";}
