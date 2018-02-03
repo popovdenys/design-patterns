@@ -1,4 +1,17 @@
-package inc.pop.galaxy.servlets;
+/*
+ * File : Goo.java
+ * Description : search result
+ * 
+ * Author : Popov Denys
+ * Created : 03 Feb, 2018
+ * 
+ * Modified : 03 Feb, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : result page of Galaxies search 
+ */
+
+package po.patterns.postredirectget.galaxy.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,9 +22,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import inc.pop.db.GalaxiesData;
-import inc.pop.domain.Galaxy;
-import inc.pop.galaxy.model.Pattern;
+import po.patterns.postredirectget.galaxy.db.GalaxiesData;
+import po.patterns.postredirectget.galaxy.domain.Galaxy;
+import po.patterns.postredirectget.galaxy.model.Pattern;
 
 public class GalaxySearch extends HttpServlet {
 
@@ -34,8 +47,11 @@ public class GalaxySearch extends HttpServlet {
 		out.println("<html><body><h3>Found route</h3>");
 		out.println("<ul>");
 		
-		if (foundGalaxies.size() > 0) foundGalaxies.stream().forEach(Pattern.infoListNote(out));
-		else out.println("Your route hasn't been found yet.");
+		foundGalaxies.stream().forEach(Pattern.infoListNote(out));
+		
+		Pattern.totalResultInfo(out, foundGalaxies.size());
+		
+		Pattern.routesFooter(out);
 		
 		out.println("</ul></body></html>");
 		out.close();

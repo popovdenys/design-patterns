@@ -7,38 +7,37 @@
 	<description>Some examples of Elements of Reusable Object-Oriented Software</description>
 
 	<servlet>
-		<servlet-name>IntercepterVictim</servlet-name>
-		<servlet-class>inc.pop.servlets.Proie</servlet-class>
+		<servlet-name>DesignPatterns</servlet-name>
+		<servlet-class>po.patterns.servlets.Goo</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>LookingForGalaxies</servlet-name>
-		<servlet-class>inc.pop.galaxy.servlets.GalaxySearch</servlet-class>
+		<servlet-class>po.patterns.postredirectget.galaxy.servlets.GalaxySearch</servlet-class>
 	</servlet>
-
 
 	<servlet>
 		<servlet-name>Galaxy</servlet-name>
-		<servlet-class>inc.pop.galaxy.servlets.Galaxies</servlet-class>
+		<servlet-class>po.patterns.postredirectget.galaxy.servlets.Galaxies</servlet-class>
 	</servlet>
 
 	<servlet>
 		<servlet-name>ChooseGalaxies</servlet-name>
-		<servlet-class>inc.pop.galaxy.servlets.GalaxiesOfChoice</servlet-class>
+		<servlet-class>po.patterns.postredirectget.galaxy.servlets.GalaxiesOfChoice</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>ChoosenGalaxies</servlet-name>
-		<servlet-class>inc.pop.galaxy.servlets.GalaxiesChoosen</servlet-class>
+		<servlet-class>po.patterns.postredirectget.galaxy.servlets.GalaxiesChoosen</servlet-class>
 	</servlet>
 	
 	<servlet>
 		<servlet-name>FinalizeGalaxiesChoice</servlet-name>
-		<servlet-class>inc.pop.galaxy.servlets.FinalizeChoice</servlet-class>
+		<servlet-class>po.patterns.postredirectget.galaxy.servlets.FinalizeChoice</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>IntercepterVictim</servlet-name>
+		<servlet-name>DesignPatterns</servlet-name>
 		<url-pattern>/index.html</url-pattern>
 	</servlet-mapping>
 

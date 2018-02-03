@@ -1,4 +1,17 @@
-package inc.pop.interceptor;
+/*
+ * File : ProfilingInterceptor.java
+ * Description : todo
+ * 
+ * Author :
+ * Created :
+ * 
+ * Modified :
+ * Modified by:
+ * 
+ * Last modification : 
+ */
+
+package po.patterns.interceptor;
 
 import java.time.Instant;
 
@@ -17,11 +30,11 @@ public class ProfilingInterceptor {
 		
 		System.out.println("Init profile of " + className + "." + methodName);
 		
-		//long start = Instant.now().toEpochMilli();
-		long start = 0;
+		long start = Instant.now().toEpochMilli();
+		
 		Object result = ctx.proceed();
-		//long finish = Instant.now().toEpochMilli();
-		long finish = 5;
+		
+		long finish = Instant.now().toEpochMilli();
 		
 		System.out.println("Executed in : " + (finish - start));
 		return result;

@@ -1,4 +1,17 @@
-package inc.pop.galaxy.servlets;
+/*
+ * File : Galaxies.java
+ * Description : welcome Galaxies' page
+ * 
+ * Author : Popov Denys
+ * Created : 30 Jan, 2018
+ * 
+ * Modified : 30 Jan, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : welcome list of Galaxies
+ */
+
+package po.patterns.postredirectget.galaxy.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,9 +23,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import inc.pop.db.GalaxiesData;
-import inc.pop.domain.Galaxy;
-import inc.pop.galaxy.model.Pattern;
+import po.patterns.postredirectget.galaxy.db.GalaxiesData;
+import po.patterns.postredirectget.galaxy.domain.Galaxy;
+import po.patterns.postredirectget.galaxy.model.Pattern;
 
 
 public class Galaxies extends HttpServlet {

@@ -1,4 +1,17 @@
-package inc.pop.galaxy.servlets;
+/*
+ * File : GalaxiesOfChoice.java
+ * Description : check Galaxies interface
+ * 
+ * Author : Popov Denys
+ * Created : 01 Feb, 2018
+ * 
+ * Modified : 01 Feb, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : checkboxes interface 
+ */
+
+package po.patterns.postredirectget.galaxy.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,10 +22,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import inc.pop.db.GalaxiesData;
-import inc.pop.domain.Galaxy;
-import inc.pop.galaxy.model.Pattern;
-import inc.pop.galaxy.model.Pattern.InputType;
+import po.patterns.postredirectget.galaxy.db.GalaxiesData;
+import po.patterns.postredirectget.galaxy.domain.Galaxy;
+import po.patterns.postredirectget.galaxy.model.Pattern;
+import po.patterns.postredirectget.galaxy.model.Pattern.InputType;
 
 public class GalaxiesOfChoice extends HttpServlet {
 
@@ -34,8 +47,7 @@ public class GalaxiesOfChoice extends HttpServlet {
 		
 		out.println("<input type=\"" + InputType.SUBMIT.get() +"\" value=\"Make my choise\">");
 		
-		out.println("<a href=\"search.html\">Find your route</a>");
-		out.println("<a href=\"choose.html\">Make your choice</a>");
+		Pattern.routesFooter(out);
 				
 		out.println("</body></html>");
 		
@@ -43,6 +55,4 @@ public class GalaxiesOfChoice extends HttpServlet {
 		
 	}
 	
-	
-
 }

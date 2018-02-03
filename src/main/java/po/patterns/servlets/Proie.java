@@ -7,11 +7,11 @@
  * 
  * Modified : 30 Feb, 2018
  * Modified by: Popov Denys
- * Last modification : base content
  * 
+ * Last modification : todo
  */
 
-package inc.pop.servlets;
+package po.patterns.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,7 +33,5 @@ public class Proie extends HttpServlet {
 		out.print("Doesn't work : <a href=\"rest/reduce/1000\">rest/reduce/1000</a>");
 		out.print("<img src=\"svg/circle.svg\">");
 		out.close();
-		
 	}
-
 }

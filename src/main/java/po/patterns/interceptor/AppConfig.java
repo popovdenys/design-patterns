@@ -1,4 +1,17 @@
-package inc.pop.interceptor;
+/*
+ * File : AppConfig.java
+ * Description : todo
+ * 
+ * Author :
+ * Created :
+ * 
+ * Modified :
+ * Modified by:
+ * 
+ * Last modification : 
+ */
+
+package po.patterns.interceptor;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,7 +19,7 @@ import java.util.Set;
 import javax.ws.rs.core.Application;
 
 @javax.ws.rs.ApplicationPath("/rest")
-public class ApplicationConfig extends Application {
+public class AppConfig extends Application {
 
 	@Override
 	public Set<Class<?>> getClasses() {
@@ -17,6 +30,6 @@ public class ApplicationConfig extends Application {
 	}
 
 	private void addRestRecourceClasses(Set<Class<?>> resources) {
-		resources.add(inc.pop.interceptor.StreamExecutor.class);
+		resources.add(po.patterns.interceptor.StreamExecutor.class);
 	}
 }

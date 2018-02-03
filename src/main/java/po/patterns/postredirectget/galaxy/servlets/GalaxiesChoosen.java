@@ -1,4 +1,17 @@
-package inc.pop.galaxy.servlets;
+/*
+ * File : GalaxiesChoosen.java
+ * Description : result of Galaxies choice page
+ * 
+ * Author : Popov Denys
+ * Created : 01 Feb, 2018
+ * 
+ * Modified : 01 Feb, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : result of user's check 
+ */
+
+package po.patterns.postredirectget.galaxy.servlets;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,8 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import inc.pop.db.GalaxiesData;
-import inc.pop.domain.Galaxy;
+import po.patterns.postredirectget.galaxy.db.GalaxiesData;
+import po.patterns.postredirectget.galaxy.domain.Galaxy;
 
 public class GalaxiesChoosen extends HttpServlet {
 

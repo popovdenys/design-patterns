@@ -1,11 +1,24 @@
-package inc.pop.db;
+/*
+ * File : GalaxiesData.java
+ * Description : database mock implementation
+ * 
+ * Author : Popov Denys
+ * Created : 01 Feb, 2018
+ * 
+ * Modified : 01 Feb, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : some search patterns 
+ */
+
+package po.patterns.postredirectget.galaxy.db;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import inc.pop.domain.Galaxy;
+import po.patterns.postredirectget.galaxy.domain.Galaxy;
 
 public class GalaxiesData {
 	List<Galaxy> galaxies = new ArrayList<Galaxy>();

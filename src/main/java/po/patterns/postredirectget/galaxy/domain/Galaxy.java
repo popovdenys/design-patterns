@@ -1,4 +1,17 @@
-package inc.pop.domain;
+/*
+ * File : Galaxy.java
+ * Description : Galaxy bean
+ * 
+ * Author : Popov Denys
+ * Created : 01 Feb, 2018
+ * 
+ * Modified : 01 Feb, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : Galaxy object  
+ */
+
+package po.patterns.postredirectget.galaxy.domain;
 
 public class Galaxy {
 	private int id;

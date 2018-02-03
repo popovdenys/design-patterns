@@ -1,8 +1,17 @@
-package inc.pop.interceptor;
+/*
+ * File : ReduceRange.java
+ * Description : todo
+ * 
+ * Author :
+ * Created :
+ * 
+ * Modified :
+ * Modified by:
+ * 
+ * Last modification : 
+ */
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-//import java.util.stream.Stream;
+package po.patterns.interceptor;
 
 import javax.enterprise.context.Dependent;
 

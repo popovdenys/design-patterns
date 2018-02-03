@@ -1,4 +1,17 @@
-package inc.pop.galaxy.servlets;
+/*
+ * File : FinalizeChoice.java
+ * Description : result of Galaxies choice page
+ * 
+ * Author : Popov Denys
+ * Created : 01 Feb, 2018
+ * 
+ * Modified : 01 Feb, 2018
+ * Modified by: Popov Denys
+ * 
+ * Last modification : page of redirect from post to get method 
+ */
+
+package po.patterns.postredirectget.galaxy.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,8 +23,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import inc.pop.domain.Galaxy;
-import inc.pop.galaxy.model.Pattern;
+import po.patterns.postredirectget.galaxy.domain.Galaxy;
+import po.patterns.postredirectget.galaxy.model.Pattern;
 
 public class FinalizeChoice extends HttpServlet {
 
@@ -46,8 +59,10 @@ public class FinalizeChoice extends HttpServlet {
 
 		out.println("</ul>");
 
-		out.print("<p><span>" + choosenCount[0] + " Galaxies in total</span></p>");
-
+		Pattern.totalResultInfo(out, choosenCount[0]);
+		
+		Pattern.routesFooter(out);
+		
 		out.println("</body></html>");
 
 		out.close();
