@@ -66,5 +66,9 @@
 		<servlet-name>FinalizeGalaxiesChoice</servlet-name>
 		<url-pattern>/youChoice.html</url-pattern>
 	</servlet-mapping>
+	
+	<session-config>
+		<session-timeout>80</session-timeout>
+	</session-config>
 
 </web-app>

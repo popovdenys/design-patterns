@@ -20,14 +20,21 @@ public class FinalizeChoice extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("->doGet");
+		System.out.println("doGet");
 		
 		HttpSession session = request.getSession();
 		
 		List<? super Galaxy> choosenGalaxies = (List<? super Galaxy>) session.getAttribute("choosenGalaxies");
-		int[] choosenCount = {0};
 		
+		if (choosenGalaxies == null ) response.sendRedirect("choose.html");
+		else printResult(response, choosenGalaxies);
+			
+	}
+
+	private void printResult(HttpServletResponse response, List<? super Galaxy> choosenGalaxies) throws IOException {
 		response.setContentType("text/html");
+		
+		int[] choosenCount = {0};
 		
 		PrintWriter out = response.getWriter();
 		

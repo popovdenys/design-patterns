@@ -20,7 +20,7 @@ public class GalaxiesChoosen extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.print("doPost");
+		System.out.print("doPost->");
 		
 		HttpSession session = request.getSession();
 		
@@ -35,7 +35,7 @@ public class GalaxiesChoosen extends HttpServlet {
 
 		session.setAttribute("choosenGalaxies", galaxiesOfChoice);
 		
-		response.sendRedirect("youChoice.html");
+		response.sendRedirect(response.encodeURL("youChoice.html"));
 		
 	}
 
