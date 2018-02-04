@@ -97,18 +97,11 @@ sourceSets {
  * ADD DEPENDENCIES
  */
 dependencies {
-    // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:23.0'
-
-    // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
-	
 	// Use servlet api
-//	runtime 'javax.servlet:servlet-api:3.0-alpha-1'
 	providedCompile 'javax:javaee-web-api:8.0'
-	runtime 'javax.ws.rs:javax.ws.rs-api:2.0'
-	runtime 'javax:javaee-endorsed-api:7.0'
-	runtime 'javax.servlet:jstl:1.1.2'
+//	runtime 'javax.ws.rs:javax.ws.rs-api:2.0'
+//	runtime 'javax:javaee-endorsed-api:7.0'
+//	runtime 'javax.servlet:jstl:1.1.2'
 }
 
 /**
