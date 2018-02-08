@@ -13,8 +13,10 @@
 
 package po.patterns.interceptor;
 
+import java.security.NoSuchAlgorithmException;
+
 public interface Executor {
 	
-	int execute(int range);
+	double execute(int range) throws NoSuchAlgorithmException;
 	
 }

@@ -6,11 +6,11 @@
     bean-discovery-mode="all">
     
     <interceptors>
-        <class>inc.pop.interceptor.ProfilingInterceptor</class>
+        <class>po.patterns.interceptor.ProfilingInterceptor</class>
     </interceptors>
     
     <decorators>
-        
+        <class>po.patterns.interceptor.DecoratorRangeLimiter</class>
     </decorators>
     
 </beans>

@@ -100,7 +100,7 @@ dependencies {
 	// Use servlet api
 	providedCompile 'javax:javaee-web-api:8.0'
 //	runtime 'javax.ws.rs:javax.ws.rs-api:2.0'
-//	runtime 'javax:javaee-endorsed-api:7.0'
+//	providedCompile 'javax:javaee-endorsed-api:7.0'
 //	runtime 'javax.servlet:jstl:1.1.2'
 }
 
@@ -165,7 +165,7 @@ task backup(type : Copy
 
 /**
  * DEPLOY
- * tasks : ['deployToTomcat']
+ * tasks : ['deployToTomcat'], ['deployToWildFly']
  */
 task deployToTomcat(type : Copy
 					, group : groups.deploy
@@ -178,6 +178,20 @@ task deployToTomcat(type : Copy
 }
  
 deployToTomcat.dependsOn backup, release //, release
+
+
+task deployToWildFly(type : Copy
+                                        , group : groups.deploy
+                                        , description : 'deploy to WildFly 11 server') {
+        from war.outputs.files
+        into "${System.properties['user.home']}/Servers/wildfly-11.0.0.Final/standalone/deployments"
+        doLast{
+                println 'deploied to WildFly'
+        }
+}
+
+deployToWildFly.dependsOn backup, release //, release
+
 
 
 task extendWar {
