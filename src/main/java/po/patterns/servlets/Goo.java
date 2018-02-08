@@ -28,9 +28,10 @@ public class Goo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		out.println("<h1>Design Patterns</h1>");
+		out.println("<h1>Design Patterns & Paradigms</h1>");
 		out.print("<ul>");
 		out.println("<li><a href=\"galaxy.html\">Post-Redirect-Get</a></li>");
+		out.println("<li><a href=\"interceptor.html\">Interceptor</a></li>");
 		out.print("</ul>");
 		out.close();
 	}

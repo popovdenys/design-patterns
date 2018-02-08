@@ -3,8 +3,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 	version="2.4">
 
+	<!-- MAIN INFO -->
+	
 	<display-name>Design Patterns</display-name>
 	<description>Some examples of Elements of Reusable Object-Oriented Software</description>
+
+	<!-- SERVLETS -->
 
 	<servlet>
 		<servlet-name>DesignPatterns</servlet-name>
@@ -35,6 +39,13 @@
 		<servlet-name>FinalizeGalaxiesChoice</servlet-name>
 		<servlet-class>po.patterns.postredirectget.galaxy.servlets.FinalizeChoice</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>InterceptorServlet</servlet-name>
+		<servlet-class>po.patterns.interceptor.newversion.Interceptor</servlet-class>
+	</servlet>
+	
+	<!-- SERVLETS' MAPPING -->
 
 	<servlet-mapping>
 		<servlet-name>DesignPatterns</servlet-name>
@@ -65,6 +76,14 @@
 		<servlet-name>FinalizeGalaxiesChoice</servlet-name>
 		<url-pattern>/youChoice.html</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>InterceptorServlet</servlet-name>
+		<url-pattern>/interceptor.html</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- SESSION CONFIG -->
 	
 	<session-config>
 		<session-timeout>80</session-timeout>
