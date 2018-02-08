@@ -13,6 +13,10 @@
 
 package po.patterns.interceptor;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.stream.Stream;
+
 import javax.enterprise.context.Dependent;
 
 @Dependent
@@ -20,13 +24,11 @@ import javax.enterprise.context.Dependent;
 public class ReduceRange implements Executor {
 
 	@Override
-	public int execute(int range) {
+	public double execute(int range) throws NoSuchAlgorithmException {
 		
-//		SecureRandom algorithm = SecureRandom.getInstanceStrong();
+		SecureRandom algorithm = SecureRandom.getInstanceStrong();
 		
-//		return Stream.generate(algorithm::nextDouble).limit(range).reduce(0d, (x, y) -> x+y);
-		
-		return 1;
+		return Stream.generate(algorithm::nextDouble).limit(range).reduce(0d, (x, y) -> x+y);
 		
 	}
 

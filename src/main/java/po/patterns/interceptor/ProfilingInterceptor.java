@@ -25,6 +25,7 @@ public class ProfilingInterceptor {
 
 	@AroundInvoke
 	public Object interceptMethod(InvocationContext ctx) throws Exception {
+		
 		String className = ctx.getMethod().getDeclaringClass().getSimpleName();
 		String methodName = ctx.getMethod().getName();
 		
@@ -36,7 +37,8 @@ public class ProfilingInterceptor {
 		
 		long finish = Instant.now().toEpochMilli();
 		
-		System.out.println("Executed in : " + (finish - start));
+		System.out.println("Executed in : " + (finish - start) + "(ms)");
+		
 		return result;
 	}
 }
