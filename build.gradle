@@ -62,7 +62,7 @@ buildDir = 'build'
 // Define the main class for the application
 mainClassName = 'inc.pop.client.ClientApp'
 // Compatible with Java 8
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
 
 group 'inc.pop'
 version =  '0.1-SNAPSHOT'
@@ -99,6 +99,20 @@ sourceSets {
 dependencies {
 	// Use servlet api
 	providedCompile 'javax:javaee-web-api:8.0'
+	
+//	providedCompile 'org.apache.logging.log4j:log4j-slf4j-impl:2.10.0'
+	
+	providedCompile 'org.apache.logging.log4j:log4j-api:2.10.0'
+	providedCompile 'org.apache.logging.log4j:log4j-core:2.10.0'
+	providedCompile 'org.apache.logging.log4j:log4j-web:2.10.0'
+	providedCompile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.4'
+	providedCompile 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
+	
+	providedCompile 'javax.mail:javax.mail-api:1.6.0'
+	providedCompile 'javax.activation:activation:1.1.1'
+	
+	
+	
 //	runtime 'javax.ws.rs:javax.ws.rs-api:2.0'
 //	runtime 'javax:javaee-endorsed-api:7.0'
 //	runtime 'javax.servlet:jstl:1.1.2'
@@ -120,6 +134,10 @@ repositories {
 
 war {
 	from 'interface'
+	from ('src/main/java') {
+		include 'log4j2.properties'
+		into 'WEB-INF/classes/'
+	}
 //	metaInf { from 'src/main/resources/META-INF'}
 //	webXml = file('src/main/webapp/WEB-INF/web.xml')
 }
