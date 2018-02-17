@@ -13,4 +13,8 @@
         <class>po.patterns.interceptor.DecoratorRangeLimiter</class>
     </decorators>
     
+    <alternatives>
+    	<class>po.patterns.injection.UserDataRepositoryImpl</class>
+    </alternatives>
+    
 </beans>

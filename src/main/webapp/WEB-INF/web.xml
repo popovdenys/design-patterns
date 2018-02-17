@@ -11,7 +11,7 @@
 	<description>Some examples of Elements of Reusable Object-Oriented Software</description>
 
 	<!-- SERVLETS -->
-
+	
 	<servlet>
 		<servlet-name>DesignPatterns</servlet-name>
 		<servlet-class>po.patterns.servlets.Goo</servlet-class>
